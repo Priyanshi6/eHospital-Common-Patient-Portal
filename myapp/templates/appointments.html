@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "dashboard.css" %}" rel="stylesheet">
+  </head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+          <span class="glyphicon glyphicon-apple" aria-hidden="true"></span></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+        	<ul class="nav navbar-nav navbar-right">
+			<li><a href="#">Dashboard</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Help</a></li>
+			<li>
+			<a href="/manage_patientProfile/" class="dropdown-toggle" data-toggle="dropdown">Account<b class="caret"></b></a>
+			<ul class="dropdown-menu">
+			<a class="dropdown-item" href="#">Action</a>
+			<a class="dropdown-item" href="#">Another action</a>
+			<a class="dropdown-item" href="#">Something else here</a>
+			</ul>
+			</li>
+			</ul>
+		</div>
+		</div>
+		</div>
+	</nav>
+
+<div class="container-fluid">
+    </br>
+      <div class="row">
+        <div class="col-xs-3 col-sm-2 sidebar">
+          <ul class="nav nav-sidebar">
+          </br></br>
+            <li class="active"><a href="#">Overview<span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Hospitals</a></li>
+            <li><a href="#">Doctors</a></li>
+            <li><a href="/appointments/">Add Appointments</a></li>
+			<li><a href="/manage_appointments/">Manage Appointments</a></li>
+            <li><a href="">Settings</a></li>
+          </ul>
+        </div>
+		<div class="col-xs-9 col-sm-10 main">
+          <h1 class="page-header">Add Appointments</h1>
+		  <form action="/bookappointment/" method="POST">
+		  <div class="jumbotron">
+		  <div class="form-group">
+		  <label for="hname">Select Hospital</label>
+		  <select name="hospitalname" class="form-control" id="hname">
+		  <option>Select Hospital</option>
+		  {% for result in data %}
+		  <option value="{{result.1}}">{{result.1}}</option>
+		  {% endfor %}
+		  </select>
+		  </div>
+		  <div class="form-group">
+		  <label for="dname">Select Doctor</label>
+		  <select name="doctorname" class="form-control" id="dname">
+		  <option>Select Doctor</option>
+		  {% for result in data1 %}
+		  <option value="{{result.2}}">{{result.2}}</option>
+		  {% endfor %}
+		  </select>
+		  </div>
+		  <div class="form-group">
+		  <label for="dept">Department</label>
+		  <input type="text" class="form-control" id="dept" placeholder="Enter the department name" name="deptname">
+		  </div>
+		  <div class="form-group">
+		  <label for="date">Date</label>
+		  <input type="date" class="form-control" id="date" placeholder="Enter the appointment date" name="date">
+		  </div>
+		  <div class="form-group">
+		  <label for="time">Time</label>
+		  <input type="time" class="form-control" id="time" placeholder="Enter the appointment time" name="time">
+		  </div>
+		 <button type="submit" class="btn btn-default">Add Appointment</button>
+		  </form>

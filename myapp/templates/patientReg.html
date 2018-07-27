@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Patient Registration</title>
+	<!-- <link rel="stylesheet" type="text/css" href="bootstrap.css"> -->
+	<link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">
+  	<span class="glyphicon glyphicon-apple" aria-hidden="true"></span></a>
+	</button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Hospitals</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Appointments <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Help</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+	<div class="container">
+		<div class="jumbotron">
+		<h1>PATIENT REGISTRATION</h1>
+<form action="/patientreg/" method="POST">
+	<div class="form-group">
+    <label for="name">Patient Name</label>
+    <input type="text" class="form-control" id="name" name="pname" placeholder="Enter the patient name">
+  </div>
+  <div class="form-group">
+    <label for="name">Patient Mobile No.</label>
+    <input type="text" class="form-control" id="name" name="pmob" placeholder="Enter the patient's mobile number">
+  </div>
+  <div class="form-group">
+    <div class="custom-file">
+    <label for="img">Upload Picture</label>
+    <input type="file" class="custom-file-input" id="customFile" name="pimg">
+    <label class="custom-file-label" for="customFile"></label></div>
+  </div>
+  <div class="form-group">
+    <label for="special">Address</label>
+    <input type="textarea" class="form-control" id="special" name="padd">
+  </div>
+  <div class="form-group">
+    <label for="email">Username/Email</label>
+    <input type="email" class="form-control" id="email" name="pemail">
+  </div>
+  <div for="form-group">
+    <label for="pass">Password</label>
+    <input type="password" class="form-control" id="pass" name="pass">
+  </div>
+  <button type="submit" class="btn btn-default">Register</button>
+  <button type="submit" class="btn btn-default">Cancel</button>
+</br></br>
+</form>
+</div>
+</div>
+</body>
+</html>
